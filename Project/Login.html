@@ -16,6 +16,23 @@
             min-height: 100vh;
         }
         
+        .navbar {
+            background-color: #333333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .navbar img {
+            height: 40px;
+            width: auto;
+        }
+        
         .login-container {
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,6 +40,7 @@
             padding: 40px;
             max-width: 400px;
             width: 100%;
+            margin-top: 70px; /* Adjust the margin to leave space for the navbar */
         }
         
         .login-container h2 {
@@ -62,6 +80,10 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#"><img src="images/Picture1.png" alt="Logo" style="height: 100px;"></a> <!-- Replace "logo.png" with your actual logo image file, adjust the height as desired -->
+        
+    </div>
     <div class="login-container">
         <h2>Login</h2>
         <form action="http://localhost:8501/" method="post">
@@ -80,8 +102,15 @@
             const password = document.getElementById('password').value;
             
             if (username === 'ADMIN' && password === 'ADMIN') {
-                window.location.href = 'http://localhost:8501/admin-page';
-            } else {
+                window.location.href = 'http://localhost:8501';
+            } 
+            if (username === 'Doctor' && password === 'Doctor') {
+                window.location.href = 'http://localhost:8501';
+            } 
+            if (username === 'Patient' && password === 'Patient') {
+                window.location.href = 'http://localhost:8502/';
+            } 
+            else {
                 alert('Invalid username or password. Please try again.');
             }
         });
